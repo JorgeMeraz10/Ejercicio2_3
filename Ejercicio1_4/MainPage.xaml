@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Convertidor="clr-namespace:Ejercicio1_4.Converters"
+             x:Class="Ejercicio1_4.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Background="#7FB3D5">
+     
+
+
+
+            <StackLayout Orientation="Vertical">
+            <Frame BackgroundColor="#363EE0" Padding="20" CornerRadius="0">
+                    <Label Text=" Ejercicio 2.3" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="White" 
+                           FontSize="20"/>
+                </Frame>
+                <Image x:Name="img"  
+                       HeightRequest="250" 
+                       WidthRequest="100" 
+                       BackgroundColor="White" 
+                       Margin="40,0,40,0" 
+                       Source="{Binding imagen, Converter={StaticResource ByteToImage}}"/>
+                <Label Text="Descripción" 
+                       FontSize="16" 
+                       TextColor="Black"
+                       Padding="20,10,30,0"/>
+                
+                <Entry x:Name="txtdescripcion" 
+                       Placeholder="Ingresar descripción"
+                       Margin="20,-5,30,0" 
+                       FontSize="16" 
+                       Text="{Binding descripcion}"/>
+
+            <Grid Margin="0,0,0,0">
+                <Button 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Tomar Foto" 
+                        x:Name="btnFoto" 
+                        Clicked="btnFoto_Clicked" 
+                        Margin="0,0,0,0" 
+                        WidthRequest="150" 
+                    CornerRadius="100"
+                    BackgroundColor="#4BA7FC"
+                    TextColor="White"
+                    TextTransform="None"
+                    FontSize="20"
+                        HorizontalOptions="Center"/>
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="Guardar"
+                        x:Name="btnSQlite"
+                        Clicked="btnSQlite_Clicked" 
+                        Margin="0,0,0,0" 
+                     CornerRadius="100"
+                    BackgroundColor="#4BA7FC"
+                    TextColor="White"
+                    TextTransform="None"
+                    FontSize="20"
+                        WidthRequest="150" 
+                        HorizontalOptions="Center" />
+            </Grid>
+
+           
+            </StackLayout>
+
+      
+
+
+    </StackLayout>
+
+</ContentPage>
